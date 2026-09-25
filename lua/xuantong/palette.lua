@@ -1,0 +1,24 @@
+-- Values from the supplied Dracula terminal theme.
+return {
+  background = "#282a36",
+  foreground = "#f8f8f2",
+  cursor_background = "#45475a",
+  ansi = {
+    "#21222c", -- 0: black
+    "#ff5555", -- 1: red
+    "#50fa7b", -- 2: green
+    "#f1fa8c", -- 3: yellow
+    "#bd93f9", -- 4: blue
+    "#ff79c6", -- 5: magenta
+    "#8be9fd", -- 6: cyan
+    "#f8f8f2", -- 7: white
+    "#6272a4", -- 8: bright black
+    "#ff6e6e", -- 9: bright red
+    "#69ff94", -- 10: bright green
+    "#ffffa5", -- 11: bright yellow
+    "#d6acff", -- 12: bright blue
+    "#ff92df", -- 13: bright magenta
+    "#a4ffff", -- 14: bright cyan
+    "#ffffff", -- 15: bright white
+  },
+}
