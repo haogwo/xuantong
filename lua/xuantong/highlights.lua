@@ -41,6 +41,12 @@ function M.apply(palette)
   vim.api.nvim_set_hl(0, "CursorLine", { bg = palette.cursor_background, update = true })
   vim.api.nvim_set_hl(0, "CursorColumn", { bg = palette.cursor_background, update = true })
 
+  -- Keep comments and line numbers readable without competing with code.
+  for _, group in ipairs({ "Comment", "@comment", "LineNr", "LineNrAbove", "LineNrBelow" }) do
+    vim.api.nvim_set_hl(0, group, { fg = palette.ansi[9], ctermfg = 8, update = true })
+  end
+  vim.api.nvim_set_hl(0, "CursorLineNr", { fg = palette.ansi[5], ctermfg = 4, update = true })
+
   for _, language in ipairs(require("xuantong.languages")) do
     for group, fg in pairs(require("xuantong.languages." .. language).groups(palette)) do
       vim.api.nvim_set_hl(0, group, { fg = fg })
