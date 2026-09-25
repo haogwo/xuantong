@@ -41,6 +41,23 @@ function M.apply(palette)
   vim.api.nvim_set_hl(0, "CursorLine", { bg = palette.cursor_background, update = true })
   vim.api.nvim_set_hl(0, "CursorColumn", { bg = palette.cursor_background, update = true })
 
+  -- Vim's default popup groups map to a bright terminal magenta. Use a dark
+  -- surface for native menus, LSP floats, and completion plugins that link to them.
+  local popup_bg = palette.cursor_background
+  local selected_bg = palette.ansi[9]
+  vim.api.nvim_set_hl(0, "NormalFloat", { fg = palette.foreground, bg = popup_bg })
+  vim.api.nvim_set_hl(0, "FloatBorder", { fg = selected_bg, bg = popup_bg })
+  vim.api.nvim_set_hl(0, "FloatTitle", { fg = palette.ansi[5], bg = popup_bg, bold = true })
+  vim.api.nvim_set_hl(0, "Pmenu", { fg = palette.foreground, bg = popup_bg })
+  vim.api.nvim_set_hl(0, "PmenuSel", { fg = palette.foreground, bg = selected_bg })
+  vim.api.nvim_set_hl(0, "PmenuKind", { fg = palette.ansi[5], bg = popup_bg })
+  vim.api.nvim_set_hl(0, "PmenuExtra", { fg = palette.ansi[7], bg = popup_bg })
+  vim.api.nvim_set_hl(0, "PmenuMatch", { fg = palette.ansi[3], bg = popup_bg, bold = true })
+  vim.api.nvim_set_hl(0, "PmenuMatchSel", { fg = palette.ansi[3], bg = selected_bg, bold = true })
+  vim.api.nvim_set_hl(0, "PmenuSbar", { bg = palette.background })
+  vim.api.nvim_set_hl(0, "PmenuThumb", { bg = selected_bg })
+  vim.api.nvim_set_hl(0, "LspSignatureActiveParameter", { fg = palette.foreground, bg = selected_bg, bold = true })
+
   -- Keep comments and line numbers readable without competing with code.
   for _, group in ipairs({ "Comment", "@comment", "LineNr", "LineNrAbove", "LineNrBelow" }) do
     vim.api.nvim_set_hl(0, group, { fg = palette.ansi[9], ctermfg = 8, update = true })
