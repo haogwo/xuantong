@@ -41,9 +41,9 @@ function M.apply(palette)
   vim.api.nvim_set_hl(0, "CursorLine", { bg = palette.cursor_background, update = true })
   vim.api.nvim_set_hl(0, "CursorColumn", { bg = palette.cursor_background, update = true })
 
-  -- Vim's default popup groups map to a bright terminal magenta. Use a dark
-  -- surface for native menus, LSP floats, and completion plugins that link to them.
-  local popup_bg = palette.cursor_background
+  -- Match popup surfaces to the editor background while keeping the selected
+  -- completion item distinct.
+  local popup_bg = palette.background
   local selected_bg = palette.ansi[9]
   vim.api.nvim_set_hl(0, "NormalFloat", { fg = palette.foreground, bg = popup_bg })
   vim.api.nvim_set_hl(0, "FloatBorder", { fg = selected_bg, bg = popup_bg })

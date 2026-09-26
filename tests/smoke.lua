@@ -20,10 +20,10 @@ local function check()
   assert(color("CursorLine", "bg") == "#45475a")
   assert(color("CursorColumn", "bg") == "#45475a")
   assert(color("NormalFloat", "fg") == "#f8f8f2")
-  assert(color("NormalFloat", "bg") == "#45475a")
-  assert(color("FloatBorder", "bg") == "#45475a")
+  assert(color("NormalFloat", "bg") == "#282a36")
+  assert(color("FloatBorder", "bg") == "#282a36")
   for _, group in ipairs({ "Pmenu", "PmenuKind", "PmenuExtra", "PmenuMatch" }) do
-    assert(color(group, "bg") == "#45475a")
+    assert(color(group, "bg") == "#282a36")
   end
   for _, group in ipairs({ "PmenuSel", "PmenuMatchSel", "LspSignatureActiveParameter" }) do
     assert(color(group, "bg") == "#6272a4")
@@ -38,8 +38,8 @@ local function check()
   assert(color("Comment", "fg") == "#6272a4")
   assert(color("LineNr", "fg") == "#6272a4")
   assert(color("CursorLineNr", "fg") == "#bd93f9")
-  assert(color("NormalFloat", "bg") == "#45475a")
-  assert(color("Pmenu", "bg") == "#45475a")
+  assert(color("NormalFloat", "bg") == "#282a36")
+  assert(color("Pmenu", "bg") == "#282a36")
 end
 
 local ok, error_message = pcall(check)
